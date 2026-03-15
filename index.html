@@ -1,1 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake Goddess – Minoan Crete</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--primary:#7a2c2c;
+--gold:#caa85a;
+--bg:#f4f1ea;
+--text:#333;
+}
+body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+.hero{height:50vh;background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url("snake.jpg"); background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;color:white;}
+.hero h1{font-family:'Cinzel',serif;font-size:36px;margin:0;letter-spacing:1px;}
+.hero p{margin-top:8px;font-size:17px;opacity:0.9;}
+.flags{position:absolute;top:15px;right:15px;}
+.flags img{width:28px;margin-left:6px;cursor:pointer;border-radius:3px;box-shadow:0 2px 5px rgba(0,0,0,0.3);}
+.container{max-width:750px;margin:auto;padding:25px;}
+.card{background:white;margin-top:-60px;border-radius:18px;padding:25px;box-shadow:0 12px 30px rgba(0,0,0,0.15);animation:fade 0.8s ease;}
+h2{font-family:'Cinzel',serif;color:var(--primary);margin-top:20px;}
+p{line-height:1.7;font-size:16px;}
+footer{margin-top:30px;text-align:center;font-size:13px;color:#777;}
+@keyframes fade{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:translateY(0);}}
+</style>
+</head>
+<body>
 
+<div class="flags">
+<img src="https://flagcdn.com/w40/gr.png" onclick="setLang('gr')">
+<img src="https://flagcdn.com/w40/gb.png" onclick="setLang('en')">
+<img src="https://flagcdn.com/w40/fr.png" onclick="setLang('fr')">
+<img src="https://flagcdn.com/w40/de.png" onclick="setLang('de')">
+<img src="https://flagcdn.com/w40/it.png" onclick="setLang('it')">
+</div>
+
+<div class="hero">
+<div>
+<h1 id="title">Snake Goddess</h1>
+<p id="subtitle">Minoan Civilization – Crete</p>
+</div>
+</div>
+
+<div class="container">
+<div class="card">
+<p id="p1"></p>
+<h2 id="h2a"></h2>
+<p id="p2"></p>
+<h2 id="h2b"></h2>
+<p id="p3"></p>
+<footer id="foot"></footer>
+</div>
+</div>
+
+<script>
+const content={
+gr:{
+title:"Η Θεά των Φιδιών",
+subtitle:"Μινωικός Πολιτισμός – Κρήτη",
+p1:"Η Θεά των Φιδιών είναι ένα από τα πιο εμβληματικά σύμβολα του μινωικού πολιτισμού. Τα αγαλματίδιά της βρέθηκαν στην Κνωσό και χρονολογούνται γύρω στο 1600 π.Χ.",
+h2a:"Συμβολισμός",
+p2:"Στη μινωική παράδοση τα φίδια συμβόλιζαν τη ζωή, την αναγέννηση και την προστασία του σπιτιού.",
+h2b:"Θεά ή Ιέρεια;",
+p3:"Οι αρχαιολόγοι ακόμη συζητούν αν πρόκειται για θεότητα της φύσης ή για ιέρεια που συμμετείχε σε τελετουργία.",
+foot:"Μινωική Κληρονομιά – Κρήτη"
+},
+en:{
+title:"The Snake Goddess",
+subtitle:"Minoan Civilization – Crete",
+p1:"The Snake Goddess is one of the most iconic symbols of the Minoan civilization. Figurines were discovered at Knossos and date to around 1600 BC.",
+h2a:"Symbolism",
+p2:"In Minoan belief, snakes symbolized life, renewal and protection of the household.",
+h2b:"Goddess or Priestess?",
+p3:"Archaeologists still debate whether the figure represents a deity of nature or a priestess performing a sacred ritual.",
+foot:"Discover the heritage of Minoan Crete"
+},
+fr:{
+title:"La Déesse aux Serpents",
+subtitle:"Civilisation Minoenne – Crète",
+p1:"La Déesse aux Serpents est l’un des symboles les plus célèbres de la civilisation minoenne.",
+h2a:"Symbolisme",
+p2:"Dans la tradition minoenne les serpents symbolisaient la vie, le renouveau et la protection du foyer.",
+h2b:"Déesse ou prêtresse ?",
+p3:"Les archéologues débattent encore de sa véritable identité.",
+foot:"Patrimoine minoen – Crète"
+},
+de:{
+title:"Die Schlangengöttin",
+subtitle:"Minoische Kultur – Kreta",
+p1:"Die Schlangengöttin ist eines der bekanntesten Symbole der minoischen Kultur.",
+h2a:"Symbolik",
+p2:"Schlangen standen für Leben, Erneuerung und Schutz des Hauses.",
+h2b:"Göttin oder Priesterin?",
+p3:"Archäologen diskutieren noch immer über ihre wahre Bedeutung.",
+foot:"Minoisches Erbe – Kreta"
+},
+it:{
+title:"La Dea dei Serpenti",
+subtitle:"Civiltà Minoica – Creta",
+p1:"La Dea dei Serpenti è uno dei simboli più famosi della civiltà minoica.",
+h2a:"Simbolismo",
+p2:"Nella tradizione minoica i serpenti rappresentavano vita, rinnovamento e protezione della casa.",
+h2b:"Dea o sacerdotessa?",
+p3:"Gli archeologi discutono ancora sulla sua vera identità.",
+foot:"Patrimonio minoico – Creta"
+}
+}
+
+function setLang(lang){
+document.getElementById("title").innerText=content[lang].title
+document.getElementById("subtitle").innerText=content[lang].subtitle
+document.getElementById("p1").innerText=content[lang].p1
+document.getElementById("h2a").innerText=content[lang].h2a
+document.getElementById("p2").innerText=content[lang].p2
+document.getElementById("h2b").innerText=content[lang].h2b
+document.getElementById("p3").innerText=content[lang].p3
+document.getElementById("foot").innerText=content[lang].foot
+}
+
+// Default language
+setLang("en")
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake Goddess – Minoan Crete</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--primary:#7a2c2c;
+--gold:#caa85a;
+--bg:#f4f1ea;
+--text:#333;
+}
+body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+.hero{height:50vh;background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url("snake.jpg"); background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;color:white;}
+.hero h1{font-family:'Cinzel',serif;font-size:36px;margin:0;letter-spacing:1px;}
+.hero p{margin-top:8px;font-size:17px;opacity:0.9;}
+.flags{position:absolute;top:15px;right:15px;}
+.flags img{width:28px;margin-left:6px;cursor:pointer;border-radius:3px;box-shadow:0 2px 5px rgba(0,0,0,0.3);}
+.container{max-width:750px;margin:auto;padding:25px;}
+.card{background:white;margin-top:-60px;border-radius:18px;padding:25px;box-shadow:0 12px 30px rgba(0,0,0,0.15);animation:fade 0.8s ease;}
+h2{font-family:'Cinzel',serif;color:var(--primary);margin-top:20px;}
+p{line-height:1.7;font-size:16px;}
+footer{margin-top:30px;text-align:center;font-size:13px;color:#777;}
+@keyframes fade{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<div class="flags">
+<img src="https://flagcdn.com/w40/gr.png" onclick="setLang('gr')">
+<img src="https://flagcdn.com/w40/gb.png" onclick="setLang('en')">
+<img src="https://flagcdn.com/w40/fr.png" onclick="setLang('fr')">
+<img src="https://flagcdn.com/w40/de.png" onclick="setLang('de')">
+<img src="https://flagcdn.com/w40/it.png" onclick="setLang('it')">
+</div>
+
+<div class="hero">
+<div>
+<h1 id="title">Snake Goddess</h1>
+<p id="subtitle">Minoan Civilization – Crete</p>
+</div>
+</div>
+
+<div class="container">
+<div class="card">
+<p id="p1"></p>
+<h2 id="h2a"></h2>
+<p id="p2"></p>
+<h2 id="h2b"></h2>
+<p id="p3"></p>
+<footer id="foot"></footer>
+</div>
+</div>
+
+<script>
+const content={
+gr:{
+title:"Η Θεά των Φιδιών",
+subtitle:"Μινωικός Πολιτισμός – Κρήτη",
+p1:"Η Θεά των Φιδιών είναι ένα από τα πιο εμβληματικά σύμβολα του μινωικού πολιτισμού. Τα αγαλματίδιά της βρέθηκαν στην Κνωσό και χρονολογούνται γύρω στο 1600 π.Χ.",
+h2a:"Συμβολισμός",
+p2:"Στη μινωική παράδοση τα φίδια συμβόλιζαν τη ζωή, την αναγέννηση και την προστασία του σπιτιού.",
+h2b:"Θεά ή Ιέρεια;",
+p3:"Οι αρχαιολόγοι ακόμη συζητούν αν πρόκειται για θεότητα της φύσης ή για ιέρεια που συμμετείχε σε τελετουργία.",
+foot:"Μινωική Κληρονομιά – Κρήτη"
+},
+en:{
+title:"The Snake Goddess",
+subtitle:"Minoan Civilization – Crete",
+p1:"The Snake Goddess is one of the most iconic symbols of the Minoan civilization. Figurines were discovered at Knossos and date to around 1600 BC.",
+h2a:"Symbolism",
+p2:"In Minoan belief, snakes symbolized life, renewal and protection of the household.",
+h2b:"Goddess or Priestess?",
+p3:"Archaeologists still debate whether the figure represents a deity of nature or a priestess performing a sacred ritual.",
+foot:"Discover the heritage of Minoan Crete"
+},
+fr:{
+title:"La Déesse aux Serpents",
+subtitle:"Civilisation Minoenne – Crète",
+p1:"La Déesse aux Serpents est l’un des symboles les plus célèbres de la civilisation minoenne.",
+h2a:"Symbolisme",
+p2:"Dans la tradition minoenne les serpents symbolisaient la vie, le renouveau et la protection du foyer.",
+h2b:"Déesse ou prêtresse ?",
+p3:"Les archéologues débattent encore de sa véritable identité.",
+foot:"Patrimoine minoen – Crète"
+},
+de:{
+title:"Die Schlangengöttin",
+subtitle:"Minoische Kultur – Kreta",
+p1:"Die Schlangengöttin ist eines der bekanntesten Symbole der minoischen Kultur.",
+h2a:"Symbolik",
+p2:"Schlangen standen für Leben, Erneuerung und Schutz des Hauses.",
+h2b:"Göttin oder Priesterin?",
+p3:"Archäologen diskutieren noch immer über ihre wahre Bedeutung.",
+foot:"Minoisches Erbe – Kreta"
+},
+it:{
+title:"La Dea dei Serpenti",
+subtitle:"Civiltà Minoica – Creta",
+p1:"La Dea dei Serpenti è uno dei simboli più famosi della civiltà minoica.",
+h2a:"Simbolismo",
+p2:"Nella tradizione minoica i serpenti rappresentavano vita, rinnovamento e protezione della casa.",
+h2b:"Dea o sacerdotessa?",
+p3:"Gli archeologi discutono ancora sulla sua vera identità.",
+foot:"Patrimonio minoico – Creta"
+}
+}
+
+function setLang(lang){
+document.getElementById("title").innerText=content[lang].title
+document.getElementById("subtitle").innerText=content[lang].subtitle
+document.getElementById("p1").innerText=content[lang].p1
+document.getElementById("h2a").innerText=content[lang].h2a
+document.getElementById("p2").innerText=content[lang].p2
+document.getElementById("h2b").innerText=content[lang].h2b
+document.getElementById("p3").innerText=content[lang].p3
+document.getElementById("foot").innerText=content[lang].foot
+}
+
+// Default language
+setLang("en")
+</script>
+
+</body>
+</html>
